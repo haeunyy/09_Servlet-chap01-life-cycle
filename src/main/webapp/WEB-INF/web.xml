@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>chap01-life-cycle</display-name>
+  <welcome-file-list>
+  <!-- welcome 파일에서 탐색할 우선순위로 작성되어있다.  -->
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 서블릿 등록 -->
+  <servlet>
+  	<servlet-name>xmlmapping</servlet-name>
+  	<servlet-class>com.greedy.section01.xml.LifeCycleTestServlet</servlet-class>
+  	<!-- 등록시에도 우선순위를 부여할 수 있다.annotation의 우선순위가 1이므로 xml은 자동 init되지만 annotation보다 나중에 실행되는것을 확인할수있다.  -->
+  	<load-on-startup>100</load-on-startup>
+  </servlet>
+  <!-- 서블릿 매핑 -->
+  <servlet-mapping>
+  	<servlet-name>xmlmapping</servlet-name>
+  	<url-pattern>/xml-lifecycle</url-pattern>
+  	<!-- index의 href와 주소가 동일해야함 -->
+  </servlet-mapping>
+  
+</web-app>
